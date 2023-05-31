@@ -36,9 +36,10 @@ namespace Projectile
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.collider.CompareTag(PLAYER_TAG) && collision.gameObject.TryGetComponent(out Health health))
+            if (collision.collider.TryGetComponent(out Health health))
             {
                 health.ApplyDamage(_projectileData.Damage);
+                PhotonNetwork.Destroy(_view);
             }
         }
         #endregion

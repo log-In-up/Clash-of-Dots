@@ -32,6 +32,11 @@ namespace UserInterface
             base.OnEnable();
         }
 
+        private void Start()
+        {
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
+
         public override void OnDisable()
         {
             _createRoom.onClick.RemoveListener(OnClickCreateRoom);
@@ -66,7 +71,7 @@ namespace UserInterface
         #region Pun Callbacks
         public override void OnJoinedRoom()
         {
-            SceneManager.LoadScene((int)SceneIndex.Game);
+            PhotonNetwork.LoadLevel((int)SceneIndex.Game);
         }
         #endregion
     }

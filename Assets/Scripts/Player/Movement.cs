@@ -31,7 +31,7 @@ namespace Player
         {
             if(!_view.IsMine)
             {
-                Destroy(_rigidbody);
+                //Destroy(_rigidbody);
             }
         }
 

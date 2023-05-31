@@ -4,11 +4,22 @@ using UnityEngine.UI;
 
 namespace Player
 {
+#if UNITY_EDITOR
+    [DisallowMultipleComponent, RequireComponent(typeof(PhotonView))]
+#endif
     public sealed class Health : MonoBehaviour
     {
         #region Fields
+        private PhotonView _view = null;
         private Slider _healthBar = null;
         private float _currentHealth, _maxHealth;
+        #endregion
+
+        #region MonoBehaviour API
+        private void Awake()
+        {
+            _view = GetComponent<PhotonView>();
+        }
         #endregion
 
         #region Public Methods
@@ -22,6 +33,16 @@ namespace Player
 
         internal void ApplyDamage(float damage)
         {
+            _view.RPC(nameof(RPC_ApplyDamage), RpcTarget.All, damage);
+        }
+        #endregion
+
+        #region Methods
+        [PunRPC]
+        private void RPC_ApplyDamage(float damage)
+        {
+            if (!_view.IsMine) return;
+
             _currentHealth -= damage;
 
             _healthBar.value = _currentHealth / _maxHealth;
