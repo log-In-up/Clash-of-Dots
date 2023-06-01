@@ -16,8 +16,6 @@ namespace Projectile
 
         #region Fields
         private PhotonView _view = null;
-
-        private const string PLAYER_TAG = "Player";
         #endregion
 
         #region MonoBehaviour API

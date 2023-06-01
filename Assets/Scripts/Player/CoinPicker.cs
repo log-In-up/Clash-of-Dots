@@ -39,7 +39,7 @@ namespace Player
         }
         #endregion
 
-        #region Methods
+        #region Remote Procedure Calls
         [PunRPC]
         private void PRC_DestroyObject(int viewID)
         {

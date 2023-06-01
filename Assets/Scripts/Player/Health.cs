@@ -1,6 +1,7 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace Player
 {
@@ -10,9 +11,14 @@ namespace Player
     public sealed class Health : MonoBehaviour
     {
         #region Fields
+        private PlayerManager _playerManager = null;
         private PhotonView _view = null;
         private Slider _healthBar = null;
         private float _currentHealth, _maxHealth;
+        #endregion
+
+        #region Properties
+        public bool IsAlive => _currentHealth > 0;
         #endregion
 
         #region MonoBehaviour API
@@ -23,8 +29,9 @@ namespace Player
         #endregion
 
         #region Public Methods
-        internal void Init(Slider healthBar, float maxHealth)
+        internal void Init(PlayerManager playerManager, Slider healthBar, float maxHealth)
         {
+            _playerManager = playerManager;
             _healthBar = healthBar;
             _currentHealth = _maxHealth = maxHealth;
 
@@ -37,7 +44,7 @@ namespace Player
         }
         #endregion
 
-        #region Methods
+        #region Remote Procedure Calls
         [PunRPC]
         private void RPC_ApplyDamage(float damage)
         {
@@ -49,7 +56,7 @@ namespace Player
 
             if (_currentHealth <= 0.0f)
             {
-                PhotonNetwork.Destroy(gameObject);
+                _playerManager.OnPlayerDeath();
             }
         }
         #endregion

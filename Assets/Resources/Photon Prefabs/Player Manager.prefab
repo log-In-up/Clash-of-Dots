@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2167a81834846b342819f373593a1e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupHandler: {fileID: 6901915457431715068}
   _playerData: {fileID: 11400000, guid: a0ab4be814fcd2e4cb0bbb1735a11b24, type: 2}
   _userInterface: {fileID: 7877247322003662971}
   _movementJoystick: {fileID: 6416311959537386277}
@@ -221,12 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2340, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -437,5 +438,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6901915457431715068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 953745204620445314, guid: b130cb5763c749f4eb56975d9ae4df5a, type: 3}
+  m_PrefabInstance: {fileID: 5977655217055660670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5032554e9c95fea4c83f19a968aa4ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

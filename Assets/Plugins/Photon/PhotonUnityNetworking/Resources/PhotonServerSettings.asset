@@ -38,6 +38,8 @@ MonoBehaviour:
   - DestroyRpc
   - PRC_DestroyObject
   - RPC_ApplyDamage
+  - RPC_AddCoin
+  - RPC_ShowPopup
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
